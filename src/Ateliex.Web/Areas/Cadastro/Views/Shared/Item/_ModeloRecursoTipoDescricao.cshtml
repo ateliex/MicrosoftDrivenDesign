@@ -1,0 +1,42 @@
+﻿@model Ateliex.Areas.Cadastro.Models.ModeloRecursoTipoDescricao
+
+@{
+    var parent = (string?)ViewData["Parent"];
+}
+
+@if (Model == null)
+{
+    <div class="null">Não existe nenhuma descrição</div>
+}
+else
+{
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        @if (parent != "ModeloRecurso")
+        {
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Tipo)
+            </dt>
+            <dd class="col-sm-9">
+                <a asp-area="Cadastro" asp-controller="ModeloRecursoTipo" asp-action="Details" asp-route-id="@Model.TipoId">
+                    @Html.DisplayFor(model => model.Tipo.Nome)
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </dd>
+        }
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Texto)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Texto)
+            <a asp-area="Cadastro" asp-controller="ModeloRecursoTipoDescricao" asp-action="Details" asp-route-id="@Model.Id">
+                <i class="bi bi-link-45deg"></i>
+            </a>
+        </dd>
+    </dl>
+}

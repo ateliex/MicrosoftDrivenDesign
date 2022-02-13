@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Ateliex.Data.Entity>
+
+@{
+    var info = @Model.GetInfo();
+
+    ViewData["Title"] = $"Cadastro - {info.SingleName}";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Cadastro" asp-controller="Home" asp-action="Index">Cadastro</a></li>
+        <li class="breadcrumb-item">@info.SingleName</li>
+    </ol>
+</nav>
+
+<section>
+    <h1>Cadastro de @info.SingleName</h1>
+
+    <div class="container">
+        <p>
+            <a asp-action="Create">Criar Novo<i class="bi bi-plus-circle"></i></a>
+        </p>
+
+        <partial name="List/_@info.MetaName" model="Model" />
+    </div>
+</section>

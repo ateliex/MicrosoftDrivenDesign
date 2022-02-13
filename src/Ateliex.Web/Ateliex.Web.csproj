@@ -7,13 +7,29 @@
     <UserSecretsId>Ateliex.MicrosoftDrivenDesign</UserSecretsId>
     <RootNamespace>Ateliex</RootNamespace>
   </PropertyGroup>
-
+	
+  <PropertyGroup>
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+	
+  <ItemGroup>
+    <None Remove="Api\hq5wohr2.2di~" />
+  </ItemGroup>
+	
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.3" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Areas\Cadastro\Data\" />
   </ItemGroup>
 
 </Project>

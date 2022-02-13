@@ -1,0 +1,48 @@
+﻿@model Ateliex.Areas.Cadastro.Models.ModeloRecursoObservacao
+
+@{
+    var parent = (string?)ViewData["Parent"];
+}
+
+@if (Model == null)
+{
+    <div class="null">Não existe nenhuma observação</div>
+}
+else
+{
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        @if (parent != "ModeloRecurso")
+        {
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Recurso.Modelo)
+            </dt>
+            <dd class="col-sm-9">
+                <a asp-area="Cadastro" asp-controller="ModeloRecurso" asp-action="Details" asp-route-id="@Model.Recurso.ModeloId">
+                    @Html.DisplayFor(model => model.Recurso.Modelo.Nome)
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Recurso)
+            </dt>
+            <dd class="col-sm-9">
+                <a asp-area="Cadastro" asp-controller="ModeloRecurso" asp-action="Details" asp-route-id="@Model.RecursoId">
+                    @Html.DisplayFor(model => model.Recurso.Descricao)
+                    <i class="bi bi-link-45deg"></i>
+                </a>
+            </dd>
+        }
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Texto)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Texto)
+        </dd>
+    </dl>
+}

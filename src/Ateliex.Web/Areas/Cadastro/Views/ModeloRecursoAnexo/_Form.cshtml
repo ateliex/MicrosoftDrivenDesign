@@ -1,0 +1,44 @@
+﻿@model Ateliex.Areas.Cadastro.Models.ModeloRecursoAnexo
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+@if (Model.IsEdit())
+{
+    <div class="row">
+        <label asp-for="Id" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-3">
+            <input asp-for="Id" class="form-control" readonly="readonly" />
+        </div>
+    </div>
+}
+<div class="row">
+    <label asp-for="Recurso.ModeloId" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-3">
+        <div class="input-group">
+            <select class="form-select" aria-label="Selecione" name="ModeloId" asp-items="ViewBag.ModeloId"></select>
+            <button class="btn btn-outline-secondary" name="command" value="SelectModelo"><i class="bi bi-check2"></i></button>
+        </div>
+        <span asp-validation-for="Recurso.ModeloId" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <label asp-for="RecursoId" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-3">
+        <select class="form-select" aria-label="Selecione" asp-for="RecursoId" asp-items="ViewBag.RecursoId"></select>
+        <span asp-validation-for="RecursoId" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <label asp-for="Nome" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-9">
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <label asp-for="Arquivo" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-3">
+        <input asp-for="Arquivo" class="form-control" />
+        <span asp-validation-for="Arquivo" class="text-danger"></span>
+    </div>
+</div>

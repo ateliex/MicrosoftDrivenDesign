@@ -1,0 +1,55 @@
+﻿@model Ateliex.Areas.Cadastro.Models.ModeloRecursoTipo
+
+@{
+    var info = Model.GetInfo();
+
+    var parent = "ModeloRecursoTipo";
+
+    var viewData = new ViewDataDictionary(ViewData) { { "Parent", parent } };
+}
+
+<section>
+    <h2>Descrição</h2>
+
+    <div class="container">
+        @if (Model.Descricao == null)
+        {
+            <p>
+                <a asp-area="Cadastro" asp-controller="ModeloRecursoTipoDescricao" asp-action="Create" asp-route-tipoId="@Model.Id">Criar Nova<i class="bi bi-plus-circle"></i></a>
+            </p>
+        }
+
+        <partial name="Item/_ModeloRecursoTipoDescricao" model="Model.Descricao" view-data=@viewData />
+
+        @if (Model.Descricao != null)
+        {
+            <p>
+                <a asp-area="Cadastro" asp-controller="ModeloRecursoTipoDescricao" asp-action="Details" asp-route-id="@Model.Descricao.Id">Detalhar<i class="bi bi-link-45deg"></i></a>
+                <a asp-area="Cadastro" asp-controller="ModeloRecursoTipoDescricao" asp-action="Edit" asp-route-id="@Model.Descricao.Id" asp-route-parent="@parent">Editar<i class="bi bi-pencil"></i></a>
+                <a asp-area="Cadastro" asp-controller="ModeloRecursoTipoDescricao" asp-action="Delete" asp-route-id="@Model.Descricao.Id" asp-route-parent="@parent" class="link-danger">Excluir<i class="bi bi-trash"></i></a>
+            </p>
+        }
+
+        <section>
+            <h7>Não há mais detalhes de descrição</h7>
+        </section>
+    </div>
+
+    <h2>Recursos</h2>
+
+    <div class="container">
+        <p>
+            <a asp-area="Cadastro" asp-controller="ModeloRecurso" asp-action="Create" asp-route-tipoId="@Model.Id">Criar Novo<i class="bi bi-plus-circle"></i></a>
+        </p>
+
+        <partial name="List/_ModeloRecurso" model="Model.Recursos" view-data=@viewData />
+
+        <section>
+            <h7>Não há mais detalhes de recursos</h7>
+        </section>
+    </div>
+</section>
+
+<section>
+    <h7>Não há mais detalhes de tipo de recurso de modelo</h7>
+</section>

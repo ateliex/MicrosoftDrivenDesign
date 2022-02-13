@@ -1,0 +1,27 @@
+﻿@model Ateliex.Areas.Cadastro.Models.ModeloRecursoTipoDescricao
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+@if (Model.IsEdit())
+{
+    <div class="row">
+        <label asp-for="Id" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-3">
+            <input asp-for="Id" class="form-control" readonly="readonly" />
+        </div>
+    </div>
+}
+<div class="row">
+    <label asp-for="TipoId" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-3">
+        <select class="form-select" aria-label="Selecione" asp-for="TipoId" asp-items="ViewBag.TipoId"></select>
+        <span asp-validation-for="TipoId" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <label asp-for="Texto" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-9">
+        <textarea asp-for="Texto" class="form-control"></textarea>
+        <span asp-validation-for="Texto" class="text-danger"></span>
+    </div>
+</div>

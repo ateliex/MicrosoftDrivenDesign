@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Ateliex.Areas.Cadastro.Models.ModeloRecursoAnexo>
+
+@{
+    var parent = (string?)ViewData["Parent"];
+}
+
+<div class="row table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                @if (parent != "ModeloRecurso")
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Recurso.Modelo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Recurso)
+                    </th>
+                }
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Arquivo)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>
+                        <a asp-area="Cadastro" asp-controller="ModeloRecursoAnexo" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-link-45deg"></i></a>
+                        <a asp-area="Cadastro" asp-controller="ModeloRecursoAnexo" asp-action="Edit" asp-route-id="@item.Id" asp-route-parent="@parent"><i class="bi bi-pencil"></i></a>
+                        <a asp-area="Cadastro" asp-controller="ModeloRecursoAnexo" asp-action="Delete" asp-route-id="@item.Id" asp-route-parent="@parent" class="link-danger"><i class="bi bi-trash"></i></a>
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </th>
+                    @if (parent != "ModeloRecurso")
+                    {
+                        <td>
+                            <a asp-area="Cadastro" asp-controller="Modelo" asp-action="Details" asp-route-id="@item.Recurso.ModeloId">
+                                @Html.DisplayFor(modelItem => item.Recurso.Modelo.Nome)
+                                <i class="bi bi-link-45deg"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-area="Cadastro" asp-controller="ModeloRecurso" asp-action="Details" asp-route-id="@item.RecursoId">
+                                @Html.DisplayFor(modelItem => item.Recurso.Descricao)
+                                <i class="bi bi-link-45deg"></i>
+                            </a>
+                        </td>
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Arquivo)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

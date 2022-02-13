@@ -1,0 +1,55 @@
+﻿@model Ateliex.Areas.Cadastro.Models.ModeloRecurso
+
+@{
+    var info = Model.GetInfo();
+
+    var parent = "ModeloRecurso";
+
+    var viewData = new ViewDataDictionary(ViewData) { { "Parent", parent } };
+}
+
+<section>
+    <h2>Observação</h2>
+
+    <div class="container">
+        @if (Model.Observacao == null)
+        {
+            <p>
+                <a asp-area="Cadastro" asp-controller="ModeloRecursoObservacao" asp-action="Create" asp-route-recursoId="@Model.Id">Criar Nova<i class="bi bi-plus-circle"></i></a>
+            </p>
+        }
+
+        <partial name="Item/_ModeloRecursoObservacao" model="Model.Observacao" view-data=@viewData />
+
+        @if (Model.Observacao != null)
+        {
+            <p>
+                <a asp-area="Cadastro" asp-controller="ModeloRecursoObservacao" asp-action="Details" asp-route-id="@Model.Observacao.Id">Detalhar<i class="bi bi-link-45deg"></i></a>
+                <a asp-area="Cadastro" asp-controller="ModeloRecursoObservacao" asp-action="Edit" asp-route-id="@Model.Observacao.Id" asp-route-parent="@parent">Editar<i class="bi bi-pencil"></i></a>
+                <a asp-area="Cadastro" asp-controller="ModeloRecursoObservacao" asp-action="Delete" asp-route-id="@Model.Observacao.Id" asp-route-parent="@parent" class="link-danger">Excluir<i class="bi bi-trash"></i></a>
+            </p>
+        }
+
+        <section>
+            <h7>Não há mais detalhes de observação</h7>
+        </section>
+    </div>
+
+    <h2>Anexos</h2>
+
+    <div class="container">
+        <p>
+            <a asp-area="Cadastro" asp-controller="ModeloRecursoAnexo" asp-action="Create" asp-route-recursoId="@Model.Id">Criar Novo<i class="bi bi-plus-circle"></i></a>
+        </p>
+
+        <partial name="List/_ModeloRecursoAnexo" model="Model.Anexos" view-data=@viewData />
+
+        <section>
+            <h7>Não há mais detalhes de recursos</h7>
+        </section>
+    </div>
+</section>
+
+<section>
+    <h7>Não há mais detalhes de recurso de modelo</h7>
+</section>
