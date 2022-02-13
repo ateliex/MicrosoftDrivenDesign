@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ateliex.Web.Data
+namespace Ateliex.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

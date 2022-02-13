@@ -1,4 +1,4 @@
-using Ateliex.Web.Data;
+using Ateliex.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

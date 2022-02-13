@@ -1,4 +1,4 @@
-namespace Ateliex.Web.Models
+namespace Ateliex.Models
 {
     public class ErrorViewModel
     {

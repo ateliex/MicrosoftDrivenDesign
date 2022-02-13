@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-Ateliex.Web-DF700B5F-048B-4D9F-805E-6ACDFE370BB2</UserSecretsId>
+    <UserSecretsId>aspnet-Ateliex-DF700B5F-048B-4D9F-805E-6ACDFE370BB2</UserSecretsId>
+    <RootNamespace>Ateliex</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

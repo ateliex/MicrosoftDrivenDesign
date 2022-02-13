@@ -1,8 +1,8 @@
-﻿using Ateliex.Web.Models;
+﻿using Ateliex.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Ateliex.Web.Controllers
+namespace Ateliex.Controllers
 {
     public class HomeController : Controller
     {
