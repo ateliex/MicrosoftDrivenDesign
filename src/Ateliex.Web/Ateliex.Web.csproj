@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-Ateliex-DF700B5F-048B-4D9F-805E-6ACDFE370BB2</UserSecretsId>
+    <UserSecretsId>Ateliex.MicrosoftDrivenDesign</UserSecretsId>
     <RootNamespace>Ateliex</RootNamespace>
   </PropertyGroup>
 
